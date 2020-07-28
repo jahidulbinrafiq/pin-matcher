@@ -9,14 +9,16 @@ function display(userInput){
    if(userInput==='C'){
     //clear all char at a time
     document.getElementById('userInputDisplay').value="";
+    notify_section('notMatch','none');
+    notify_section('match','none');
 
    }else if(userInput=='<' || userInput=='>'){
 
     let displayValue=document.getElementById('userInputDisplay');
     if(document.getElementById('userInputDisplay').value==""){
         swal("Input field is empty!", "...Nothing to remove")
-        displayProperty('notMatch','none');
-        displayProperty('match','none')
+        notify_section('notMatch','none');
+        notify_section('match','none');
     }
     else if(userInput=='>'){
         //clear char one by one from left to right
@@ -40,21 +42,23 @@ submit.addEventListener('click',function(){
     let randomNumber=document.getElementById('randomNumberDisplay').value;
    
     if((displayValue=="")||(randomNumber=="")){
-        swal("Field is empty!", "..Check Input Field & Random Number Field")
-        displayProperty('notMatch','none');
-        displayProperty('match','none')
+        swal("Empty!", "..Check Input Field & Random Number Field")
+        notify_section('notMatch','none');
+        notify_section('match','none')
     }
     else{
         if(displayValue==randomNumber){
-            displayProperty('match','block');
-            displayProperty('notMatch','none');
+            notify_section('match','block');
+            notify_section('notMatch','none');
         }else{
-            displayProperty('notMatch','block');
-            displayProperty('match','none')         
+            notify_section('notMatch','block');
+            notify_section('match','none') 
+                    
     }
     } 
+    
 })
 
-function displayProperty(id,value){
+function notify_section(id,value){
     document.getElementById(id).style.display=value;
 }
