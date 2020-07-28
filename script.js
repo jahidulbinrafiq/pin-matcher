@@ -8,12 +8,11 @@ randomnumber.addEventListener('click',function(){
 function display(userInput){
    if(userInput==='C'){
     document.getElementById('userInputDisplay').value="";
+   }else if(userInput=='<'){
+    let displayValue=document.getElementById('userInputDisplay');
+    document.getElementById('userInputDisplay').value=displayValue.value.substring(0,displayValue.value.length-1)
    }
    else{
     document.getElementById('userInputDisplay').value+=userInput;
-   }
-       
-}
-function remove(){
-    console.log(1);
+   }  
 }
