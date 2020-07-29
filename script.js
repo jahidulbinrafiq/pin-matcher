@@ -23,14 +23,17 @@ function display(userInput){
     }
     else if(userInput=='>'){
         //clear char one by one from left to right
-        document.getElementById('userInputDisplay').value=displayValue.value.substring(1,displayValue.value.length)
+        document.getElementById('userInputDisplay').value=displayValue.substring(1,displayValue.length)
          //str=display.value
          //str.substring(1,str.length)
+         //str.slice(1,str.length)
     }
     else{
         //clear char one by one from right to left
         document.getElementById('userInputDisplay').value=displayValue.value.substring(0,displayValue.value.length-1)
          //str.substring(0,str.length-1)
+         //str.slice(0,str.length-1);
+        
     }
    }
    else{
