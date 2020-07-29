@@ -23,7 +23,7 @@ function display(userInput){
     }
     else if(userInput=='>'){
         //clear char one by one from left to right
-        document.getElementById('userInputDisplay').value=displayValue.substring(1,displayValue.length)
+        document.getElementById('userInputDisplay').value=displayValue.value.substring(1,displayValue.value.length)
          //str=display.value
          //str.substring(1,str.length)
          //str.slice(1,str.length)
