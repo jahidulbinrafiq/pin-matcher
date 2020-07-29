@@ -13,7 +13,6 @@ function display(userInput){
     notify_section('match','none');
 
    }else if(userInput=='<' || userInput=='>'){
-
     let displayValue=document.getElementById('userInputDisplay');
     if(document.getElementById('userInputDisplay').value==""){
         swal("Input field is empty!", "...Nothing to remove")
@@ -23,7 +22,8 @@ function display(userInput){
     else if(userInput=='>'){
         //clear char one by one from left to right
         document.getElementById('userInputDisplay').value=displayValue.value.substring(1,displayValue.value.length)
-         //str.substring(0,str.length)
+         //str=display.value
+         //str.substring(1,str.length)
     }
     else{
         //clear char one by one from right to left
@@ -36,13 +36,15 @@ function display(userInput){
    }  
 }
 
+//submit section
+
 const submit=document.getElementById('submit');
 submit.addEventListener('click',function(){
     let displayValue=document.getElementById('userInputDisplay').value;
     let randomNumber=document.getElementById('randomNumberDisplay').value;
-   
+  
     if((displayValue=="")||(randomNumber=="")){
-        swal("Empty!", "..Check Input Field & Random Number Field")
+        swal("Empty!", "..Check Input Field & Random Number Field....")
         notify_section('notMatch','none');
         notify_section('match','none')
     }
@@ -50,13 +52,29 @@ submit.addEventListener('click',function(){
         if(displayValue==randomNumber){
             notify_section('match','block');
             notify_section('notMatch','none');
-        }else{
-            notify_section('notMatch','block');
-            notify_section('match','none') 
-                    
+        }
+        else{ 
+
+            let updatevalue=0; 
+            let action_left_value=document.getElementById('action_left_value').innerText;  
+            let convertValue=parseInt(action_left_value);
+            updatevalue=convertValue-1;
+            document.getElementById('action-left').style.display='block'; 
+
+            if(convertValue<=3 && convertValue>=1){
+                 document.getElementById('action_left_value').innerText=updatevalue;
+                 notify_section('notMatch','block');
+                 notify_section('match','none')   
+             }else{
+                swal("OOps!You have alredy try 3 times");
+                document.getElementById('action-left').style.display='none'; 
+                 notify_section('notMatch','none');
+                 notify_section('match','none')  
+             }
     }
-    } 
-    
+    }   
+
+   
 })
 
 function notify_section(id,value){
