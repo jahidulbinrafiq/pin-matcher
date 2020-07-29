@@ -66,11 +66,15 @@ submit.addEventListener('click',function(){
                  notify_section('notMatch','block');
                  notify_section('match','none')   
              }else{
-                swal("OOps!You have alredy try 3 times");
+                swal("OOps!You have alredy try 4 times");
                 document.getElementById('action-left').style.display='none'; 
                  notify_section('notMatch','none');
                  notify_section('match','none')  
+                 document.getElementById("submit").disabled = true;
+                 document.getElementById("submit").style.backgroundColor='#cccccc';
+                 document.getElementById("submit").style.color=' #666666';
              }
+           
     }
     }   
 
