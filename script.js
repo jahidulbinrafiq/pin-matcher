@@ -11,6 +11,7 @@ function display(userInput){
     document.getElementById('userInputDisplay').value="";
     notify_section('notMatch','none');
     notify_section('match','none');
+    swal("...Empty!..")
 
    }else if(userInput=='<' || userInput=='>'){
     let displayValue=document.getElementById('userInputDisplay');
