@@ -5,6 +5,7 @@ randomnumber.addEventListener('click',function(){
     document.getElementById('randomNumberDisplay').value=generateNumber;   
 });
 
+//button section 
 function display(userInput){
    if(userInput==='C'){
     //clear all char at a time
@@ -53,9 +54,12 @@ submit.addEventListener('click',function(){
         if(displayValue==randomNumber){
             notify_section('match','block');
             notify_section('notMatch','none');
+            
+            //clear random number field &  user input field automatically
+            input_field_clear('randomNumberDisplay');
+            input_field_clear('userInputDisplay');
         }
         else{ 
-
             let updatevalue=0; 
             let action_left_value=document.getElementById('action_left_value').innerText;  
             let convertValue=parseInt(action_left_value);
@@ -65,23 +69,39 @@ submit.addEventListener('click',function(){
             if(convertValue<=3 && convertValue>=1){
                  document.getElementById('action_left_value').innerText=updatevalue;
                  notify_section('notMatch','block');
-                 notify_section('match','none')   
+                 notify_section('match','none');
+
+                 //clear user input field automatically
+                 input_field_clear('userInputDisplay');
+            
+
              }else{
-                swal("OOps!You have alredy try 4 times");
-                document.getElementById('action-left').style.display='none'; 
+                 swal("OOps!You have alredy try 4 times");
+                 document.getElementById('action-left').style.display='none'; 
                  notify_section('notMatch','none');
                  notify_section('match','none')  
+
+                 //disabled submit button 
                  document.getElementById("submit").disabled = true;
                  document.getElementById("submit").style.backgroundColor='#cccccc';
                  document.getElementById("submit").style.color=' #666666';
-             }
-           
+
+                //clear random number field &  user input field automatically
+                 input_field_clear('randomNumberDisplay');
+                 input_field_clear('userInputDisplay');
+             }          
     }
     }   
 
-   
 })
 
+//notify_section
 function notify_section(id,value){
     document.getElementById(id).style.display=value;
 }
+
+//after submit automatically clear input field
+function input_field_clear(id){
+    document.getElementById(id).value="";  
+}
+
