@@ -26,11 +26,14 @@ function display(userInput){
         document.getElementById('userInputDisplay').value=displayValue.value.substring(1,displayValue.value.length)
          //str=display.value
          //str.substring(1,str.length)
+         //str.slice(1,str.length)
     }
     else{
         //clear char one by one from right to left
         document.getElementById('userInputDisplay').value=displayValue.value.substring(0,displayValue.value.length-1)
          //str.substring(0,str.length-1)
+         //str.slice(0,str.length-1);
+        
     }
    }
    else{
@@ -66,7 +69,7 @@ submit.addEventListener('click',function(){
             updatevalue=convertValue-1;
             document.getElementById('action-left').style.display='block'; 
 
-            if(convertValue<=3 && convertValue>=1){
+            if(convertValue<=3 && convertValue>1){
                  document.getElementById('action_left_value').innerText=updatevalue;
                  notify_section('notMatch','block');
                  notify_section('match','none');
@@ -76,7 +79,7 @@ submit.addEventListener('click',function(){
             
 
              }else{
-                 swal("OOps!You have alredy try 4 times");
+                 swal("OOps!You have alredy try 3 times");
                  document.getElementById('action-left').style.display='none'; 
                  notify_section('notMatch','none');
                  notify_section('match','none')  
