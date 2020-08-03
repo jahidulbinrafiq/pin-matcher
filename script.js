@@ -69,7 +69,7 @@ submit.addEventListener('click',function(){
             updatevalue=convertValue-1;
             document.getElementById('action-left').style.display='block'; 
 
-            if(convertValue<=3 && convertValue>1){
+            if(convertValue>1){
                  document.getElementById('action_left_value').innerText=updatevalue;
                  notify_section('notMatch','block');
                  notify_section('match','none');
